@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output files from runs
+*.png
+*.nwk
+*_matrix.csv
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
