@@ -216,5 +216,5 @@ For commercial use, please contact the authors.
 
 **Prof. Dr. Siomar de Castro Soares**
 
-Laboratory of Immunology and Omics Sciences (LimCom) 
+Laboratory of Immunology and Omics Sciences (LimCom) - 
 Universidade Federal do Triângulo Mineiro (UFTM)
