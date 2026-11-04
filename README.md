@@ -1,14 +1,14 @@
 # 🧬 Heatmap_compare
 
-A fast and versatile Python pipeline to analyze genomic similarities between FASTA files using **DIAMOND** (6-frame translation).  
+A fast and versatile Python pipeline to analyze genomic similarities between FASTA files using **DIAMOND** (6-frame translation).
 Supports **all-vs-all** comparisons within a single directory or **comparative** analyses between two distinct sets of genomes/regions (Folder A vs. Folder B), automatically generating a similarity heatmap and Neighbor-Joining (NJ) phylogenetic trees.
 
 ---
 
 ## 📌 Overview
 
-Assessing sequence similarity and conservation across bacterial genomes, genomic islands, plasmids, or mobile genetic elements often requires intensive all-vs-all alignments.  
-**Heatmap_compare** (`diamond_heatmap_unified.py`) streamlines this process by:
+Assessing sequence similarity and conservation across bacterial genomes, genomic islands, plasmids, or mobile genetic elements often requires intensive all-vs-all alignments.**Heatmap_compare** (`diamond_heatmap_unified.py`) streamlines this process by:
+
 1. Fragmenting DNA sequences into overlapping windows (1,500 bp with 300 bp overlap).
 2. Translating nucleotide fragments in all 6 reading frames.
 3. Conducting ultra-fast protein alignments using **DIAMOND**.
@@ -35,6 +35,7 @@ Assessing sequence similarity and conservation across bacterial genomes, genomic
 ## 📦 Requirements & Dependencies
 
 ### 1. Python Environment
+
 - Python 3.7+
 - Required libraries:
   - `biopython`
@@ -43,6 +44,7 @@ Assessing sequence similarity and conservation across bacterial genomes, genomic
   - `matplotlib`
 
 ### 2. External Tools
+
 - **DIAMOND Aligner** (v2.0+ recommended)
   - Download from: [https://github.com/bbuchfink/diamond/releases](https://github.com/bbuchfink/diamond/releases)
   - Add `diamond` to your system `PATH`, or provide the binary path via `--diamond_path`.
@@ -61,6 +63,7 @@ pip install biopython pandas seaborn matplotlib
 ```
 
 Ensure DIAMOND is installed and accessible:
+
 ```bash
 diamond --version
 ```
@@ -70,6 +73,7 @@ diamond --version
 ## ▶️ Usage
 
 ### 1. Single Folder (All-vs-All Analysis)
+
 Compare all FASTA files in a single directory against each other:
 
 ```bash
@@ -79,6 +83,7 @@ python diamond_heatmap_unified.py \
 ```
 
 ### 2. Two Folders (Comparative Analysis: Folder A vs. Folder B)
+
 Compare files in Folder A against files in Folder B:
 
 ```bash
@@ -89,6 +94,7 @@ python diamond_heatmap_unified.py \
 ```
 
 ### 3. Specify DIAMOND Executable Path
+
 If DIAMOND is not in your system `PATH`:
 
 ```bash
@@ -97,9 +103,11 @@ python diamond_heatmap_unified.py \
     --output results_heatmap.png \
     --diamond_path /usr/local/bin/diamond
 ```
+
 *(On Windows: `--diamond_path "C:\path\to\diamond.exe"`)*
 
 ### 4. Force Re-run (Bypass Cache)
+
 Recompute alignments from scratch, ignoring existing cached `*_matrix.csv`:
 
 ```bash
@@ -113,13 +121,13 @@ python diamond_heatmap_unified.py \
 
 ## ⚙️ Parameters & Arguments
 
-| Argument | Shorthand | Required | Description |
-| :--- | :---: | :---: | :--- |
-| `--folder_a` | `-a` | **Yes** | Path to the primary folder containing FASTA files (`.fasta`, `.fa`, `.fna`, `.faa`). |
-| `--folder_b` | `-b` | No | Path to the second folder of FASTA files for two-way comparison. |
-| `--output` | `-o` | **Yes** | Base output path for the heatmap image (e.g., `heatmap.png`). |
-| `--diamond_path` | | No | Explicit path to the DIAMOND executable or its containing directory. |
-| `--rerun` | | No | Force recalculation of similarity matrix, bypassing cached `.csv`. |
+| Argument           | Shorthand |   Required   | Description                                                                                  |
+| :----------------- | :-------: | :-----------: | :------------------------------------------------------------------------------------------- |
+| `--folder_a`     |  `-a`  | **Yes** | Path to the primary folder containing FASTA files (`.fasta`, `.fa`, `.fna`, `.faa`). |
+| `--folder_b`     |  `-b`  |      No      | Path to the second folder of FASTA files for two-way comparison.                             |
+| `--output`       |  `-o`  | **Yes** | Base output path for the heatmap image (e.g., `heatmap.png`).                              |
+| `--diamond_path` |          |      No      | Explicit path to the DIAMOND executable or its containing directory.                         |
+| `--rerun`        |          |      No      | Force recalculation of similarity matrix, bypassing cached `.csv`.                         |
 
 ---
 
@@ -167,6 +175,7 @@ Given an output name like `--output results.png`, the pipeline produces:
 Supported file extensions for inputs include `.fasta`, `.fa`, `.fna`, and `.faa`.
 
 ### Example (Single Folder Mode):
+
 ```
 genomes/
 ├── Strain_01.fasta
@@ -175,6 +184,7 @@ genomes/
 ```
 
 ### Example (Two Folder Mode):
+
 ```
 dataset/
 ├── query_islands/
@@ -197,13 +207,13 @@ dataset/
 
 ## 📄 License
 
-This project is freely available for academic and scientific use.  
+This project is freely available for academic and scientific use.
 For commercial use, please contact the authors.
 
 ---
 
 ## ✨ Author
 
-**Andrei Giacchetto Felice**  
-Laboratory of Immunology and Omics Sciences (LimCom)  
+**Siomar de Castro Soares**
+Laboratory of Immunology and Omics Sciences (LimCom)
 Universidade Federal do Triângulo Mineiro (UFTM)
